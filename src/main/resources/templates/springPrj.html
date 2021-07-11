@@ -1,40 +1,64 @@
-<!doctype html>
-<html xmlns:th="https://www.thymeleaf.org">
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
-  <link rel='stylesheet' href='../../../styles.css' />
-  <meta charset="utf-8">
-  <title>Home</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="keyword" content="Jimmy Wang">
-  <meta name="description" content="Jimmy's Home Page">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keyword" content="Jimmy Wang">
+    <meta name="description" content="Jimmy's Home Page">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-</head>
-<body style="background-color:springgreen;">
 <body>
-<header class="header">
+
+
+<h1> <img src="../static/images/headimage.jpg" th:src="@{/images/headimage.jpg}" class="center"></h1>
+
+<div class="topMenu">
+    <a class="active" href="index.html"  th:href="@{/home}">Home</a>
+    <a class="active" href="springPrj.html" th:href="@{/comment}">Spring Web Application</a>
+    <a href="#news">Games Made</a>
+    <a href="#contact">Science & Technology</a>
+    <a href="#about">My Family</a>
+</div>
+
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12">
           <h1 style="text-align: center;"><span style="color: #ff6600;"><em><strong>Comments</strong></em></span></h1>
           <h2 style="text-align: center;"><span style="color: #ff9900;">Please leave your comments so we can exchange ideas in programming</span></h2>
-          <h2 style="text-align: center;"><span style="color: #ff0000;"><strong>Note: This page is built with Spring Boot Framework</strong></span></h2>
+          <h2 style="text-align: center;"><span style="color: #ff0000;"><strong>Note: This page is built with Spring Boot Framework. Your comments/email left in the input boxes
+          will be stored in the backend mySQL databases, and be redisplayed on the site. It is the basic structure of a web application.
+
+          </strong></span></h2>
       </div>
     </div>
   </div>
-</header>
+
 
 <div class="main">
   <div class="container">
       <div>
         <form action="#" th:action="@{/springPrj/add}" th:object="${comment}" method="post">
-          Name: <input type="text" th:field="*{name}"> <br>
-          Email: <input type="text" th:field="*{email}"><br>
-          Comment: <input type="text" th:field="*{commentValue}"><br>
+            <table>
+         <tr>
+             <td>Name:</td><td><input type="text" th:field="*{name}"></td>
+         </tr>
+
+            <td>Email:</td> <td><input type="text" th:field="*{email}"></td>
+         </tr>
+         <tr>
+          <td>Comment: </td><td><input type="text" th:field="*{commentValue}"></td>
+
+          </tr>
+            </table>
 
           <input type="submit" >
         </form>
+
 
       </div>
       <div>
